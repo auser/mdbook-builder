@@ -1,0 +1,19 @@
+services:
+  mdbook:
+    container_name: mdbook
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    ports:
+      - 8989:8989
+      - 8000:8000
+    volumes:
+      - ${PWD}:/book
+    command:
+      - serve
+      - --hostname
+      - '0.0.0.0'
+      - --port
+      - '8989'

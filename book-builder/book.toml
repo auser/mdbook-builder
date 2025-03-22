@@ -1,0 +1,30 @@
+[book]
+authors = ["Ari <ari@herringbank.com>"]
+language = "en"
+multilingual = false
+src = "/book/src"
+title = "Herringbank Development"
+
+[server]
+port = 8989
+
+# [preprocessor.index]
+
+# [preprocessor.links]
+
+[output.html]
+
+[output.pdf]
+command = "mdbook-pdf"
+renderer = ["html"]
+use-default-preprocessors = true
+
+# Fix for Chrome debugging port issues
+[output.pdf.chrome]
+args = [
+  "--no-sandbox",
+  "--disable-dev-shm-usage",
+  "--disable-gpu",
+  "--headless=new",
+  "--remote-debugging-port=0",
+]
